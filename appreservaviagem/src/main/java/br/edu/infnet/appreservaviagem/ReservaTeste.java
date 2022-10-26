@@ -4,33 +4,36 @@ import java.util.Date;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appreservaviagem.model.domain.Reserva;
 
+@Order(1)
 @Component
 public class ReservaTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("## Cadastramento de Reservas ##");
+		
 		Reserva r1 = new Reserva();
-		r1.codigo = "R001";
-		r1.total = 100;
-		r1.data = new Date();
-		System.out.println("Reserva - " + r1);
+		r1.setCodigo("R001");
+		r1.setTotal(100);
+		r1.setData(new Date());
+		System.out.println("> " + r1);
 		
 		Reserva r2 = new Reserva();
-		r2.codigo = "R002";
-		r2.total = 500;
-		r2.data = new Date();
-		System.out.println("Reserva - " + r2);
+		r2.setCodigo("R002");
+		r2.setTotal(500);
+		r2.setData(new Date());
+		System.out.println("> " + r2);
 				
 		Reserva r3 = new Reserva();
-		r3.codigo = "R003";
-		r3.total = 50;
-		r3.data = new Date();
-		System.out.println("Reserva - " + r3);	
-		
+		r3.setCodigo("R003");
+		r3.setTotal(50);
+		r3.setData(new Date());
+		System.out.println("> " + r3);			
 	}
 
 }

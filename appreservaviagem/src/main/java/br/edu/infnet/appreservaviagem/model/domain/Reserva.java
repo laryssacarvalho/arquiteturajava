@@ -3,12 +3,36 @@ package br.edu.infnet.appreservaviagem.model.domain;
 import java.util.Date;
 
 public class Reserva {
-	public double total;
-	public String codigo;
-	public Date data;
+	private double total;
+	private String codigo;
+	private Date data;
 	
 	@Override
 	public String toString() {
-		return "Código: "+ codigo + " Data: " + data + " Total: " + total;
+		return codigo + ";" + data + ";" + total;
 	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}	
 }

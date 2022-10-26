@@ -4,33 +4,36 @@ import java.util.Date;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 
+@Order(2)
 @Component
 public class ViajanteTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("## Cadastramento de Viajantes ##");
+		
 		Viajante v1 = new Viajante();
-		v1.nome = "Maria Silva";
-		v1.documento = "111.222.333-44";
-		v1.dataNascimento = new Date();
-		System.out.println("Viajante - " + v1);
+		v1.setNome("Maria Silva");
+		v1.setDocumento("111.222.333-44");
+		v1.setDataNascimento(new Date());
+		System.out.println("> " + v1);
 		
 		Viajante v2 = new Viajante();
-		v2.nome = "João Souza";
-		v2.documento = "222.333.444-55";
-		v2.dataNascimento = new Date();
-		System.out.println("Viajante - " + v2);
+		v2.setNome("João Souza");
+		v2.setDocumento("222.333.444-55");
+		v2.setDataNascimento(new Date());
+		System.out.println("> " + v2);
 				
 		Viajante v3 = new Viajante();
-		v3.nome = "Pedro Camargo";
-		v3.documento = "333.444.555-66";
-		v3.dataNascimento = new Date();
-		System.out.println("Viajante - " + v3);	
-		
+		v3.setNome("Pedro Camargo");
+		v3.setDocumento("333.444.555-66");
+		v3.setDataNascimento(new Date());
+		System.out.println("> " + v3);			
 	}
 
 }

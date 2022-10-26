@@ -1,5 +1,7 @@
 package br.edu.infnet.appreservaviagem;
 
+import java.util.Date;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -11,24 +13,34 @@ public class CaronaTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("## Cadastramento de Passagens de Carona ##");
+		
 		Carona c1 = new Carona();
-		c1.placa = "AAA1B12";
-		c1.marca = "Ford";
-		c1.modelo = "Ka";
-		System.out.println("Carona - " + c1);
+		c1.setOrigem("Tatui");
+		c1.setDestino("Sorocaba");
+		c1.setData(new Date());
+		c1.setMarca("Ford");
+		c1.setModelo("Ka");
+		c1.setPlaca("AAA1B12");
+		System.out.println("> " + c1);
 		
 		Carona c2 = new Carona();
-		c2.placa = "BBB1C12";
-		c2.marca = "Renault";
-		c2.modelo = "Kwid";
-		System.out.println("Carona - " + c2);
+		c2.setOrigem("Sorocaba");
+		c2.setDestino("Itu");
+		c2.setData(new Date());
+		c2.setMarca("Renault");
+		c2.setModelo("Kwid");
+		c2.setPlaca("BBB1C12");		
+		System.out.println("> " + c2);
 				
 		Carona c3 = new Carona();
-		c3.placa = "CCC1D12";
-		c3.marca = "Fiat";
-		c3.modelo = "Mobi";
-		System.out.println("Carona - " + c3);
-		
+		c3.setOrigem("Itu");
+		c3.setDestino("Indaiatuba");
+		c3.setData(new Date());
+		c3.setMarca("Fiat");
+		c3.setModelo("Mobi");
+		c3.setPlaca("CCC1D12");		
+		System.out.println("> " + c3);		
 	}
 
 }

@@ -1,5 +1,7 @@
 package br.edu.infnet.appreservaviagem;
 
+import java.util.Date;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -11,22 +13,33 @@ public class OnibusTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("## Cadastramento de Passagens de Onibus ##");
+		
 		Onibus o1 = new Onibus();
-		o1.linha = "RIO DE JANEIRO - SOROCABA";
-		o1.plataforma = "12";
-		o1.poltrona = "40";
-		System.out.println("Onibus - " + o1);
+		o1.setOrigem("Rio de Janeiro");
+		o1.setDestino("Sorocaba");
+		o1.setData(new Date());
+		o1.setLinha("RIO DE JANEIRO - SOROCABA");
+		o1.setPlataforma("12");
+		o1.setPoltrona("40");
+		System.out.println("> " + o1);
 		
 		Onibus o2 = new Onibus();
-		o2.linha = "SOROCABA - TATUI";
-		o2.plataforma = "01";
-		o2.poltrona = "20";
-		System.out.println("Onibus - " + o2);
+		o2.setOrigem("Sorocaba");
+		o2.setDestino("Tatui");
+		o2.setData(new Date());
+		o2.setLinha("SOROCABA - TATUI");
+		o2.setPlataforma("01");
+		o2.setPoltrona("20");
+		System.out.println("> " + o2);
 				
 		Onibus o3 = new Onibus();
-		o3.linha = "TATUI - SAO PAULO";
-		o3.plataforma = "08";
-		o3.poltrona = "11";		
-		System.out.println("Onibus - " + o3);	
+		o3.setOrigem("Tatui");
+		o3.setDestino("Sao Paulo");
+		o3.setData(new Date());
+		o3.setLinha("TATUI - SAO PAULO");
+		o3.setPlataforma("08");
+		o3.setPoltrona("11");	
+		System.out.println("> " + o3);	
 	}
 }
