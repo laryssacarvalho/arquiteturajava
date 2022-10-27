@@ -1,13 +1,12 @@
-package br.edu.infnet.appreservaviagem;
+package br.edu.infnet.appreservaviagem.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
@@ -16,14 +15,11 @@ import br.edu.infnet.appreservaviagem.model.domain.Passagem;
 import br.edu.infnet.appreservaviagem.model.domain.Reserva;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 
-@Order(1)
-@Component
-public class ReservaTeste implements ApplicationRunner {
-
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("## Cadastramento de Reservas ##");
-		
+@Controller
+public class ReservaController {
+	
+	@GetMapping(value = "/reserva/lista")
+	public String telaLista(Model model) {
 		Viajante v1 = new Viajante();
 		v1.setDataNascimento(new Date());
 		v1.setDocumento("111.222.333-44");
@@ -67,20 +63,25 @@ public class ReservaTeste implements ApplicationRunner {
 		r1.setTotal(100);		
 		r1.setViajante(v1);
 		r1.setPassagens(passagensPrimeiraReserva);
-		System.out.println("> " + r1);
 		
 		Reserva r2 = new Reserva(v1);
 		r2.setCodigo("R002");
 		r2.setTotal(500);
 		r2.setPassagens(passagensDemaisReservas);
-		System.out.println("> " + r2);
 				
 		Reserva r3 = new Reserva();
 		r3.setCodigo("R003");
 		r3.setTotal(50);
 		r3.setViajante(v1);
 		r3.setPassagens(passagensDemaisReservas);
-		System.out.println("> " + r3);			
+		
+		List<Reserva> reservas = new ArrayList<Reserva>();
+		reservas.add(r1);
+		reservas.add(r2);
+		reservas.add(r3);
+		
+		model.addAttribute("listagem", reservas);
+		
+		return "reserva/lista";
 	}
-
 }

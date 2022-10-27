@@ -1,15 +1,28 @@
 package br.edu.infnet.appreservaviagem.model.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 public class Reserva {
 	private double total;
 	private String codigo;
-	private Date data;
+	private LocalDateTime data;
+	private Viajante viajante;
+	private List<Passagem> passagens;
+	
+	public Reserva() {
+		data = LocalDateTime.now();
+	}
+	
+	public Reserva(Viajante viajante) {
+		this();
+		this.viajante = viajante;
+	}
 	
 	@Override
 	public String toString() {
-		return codigo + ";" + data + ";" + total;
+		return codigo + ";" + data + ";" + total + ";" + viajante + ";" + passagens.size();
 	}
 
 	public double getTotal() {
@@ -28,11 +41,27 @@ public class Reserva {
 		this.codigo = codigo;
 	}
 
-	public Date getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
+	}
+
+	public Viajante getViajante() {
+		return viajante;
+	}
+
+	public void setViajante(Viajante viajante) {
+		this.viajante = viajante;
+	}
+
+	public List<Passagem> getPassagens() {
+		return passagens;
+	}
+
+	public void setPassagens(List<Passagem> passagens) {
+		this.passagens = passagens;
 	}	
 }
