@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Reserva {
+	private Integer id;
 	private double total;
 	private String codigo;
 	private LocalDateTime data;
@@ -63,5 +64,13 @@ public class Reserva {
 
 	public void setPassagens(List<Passagem> passagens) {
 		this.passagens = passagens;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}	
 }

@@ -3,13 +3,14 @@ package br.edu.infnet.appreservaviagem.model.domain;
 import java.util.Date;
 
 public class Passagem {
+	private Integer id;
 	private String origem;
 	private String destino;
 	private Date data;
 	
 	@Override
 	public String toString() {
-		return origem + ";" + destino + ";" + data;
+		return id + ";" + origem + ";" + destino + ";" + data;
 	}
 
 	public String getOrigem() {
@@ -34,5 +35,13 @@ public class Passagem {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}	
 }

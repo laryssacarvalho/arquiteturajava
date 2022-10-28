@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appreservaviagem.controller.ReservaController;
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
 import br.edu.infnet.appreservaviagem.model.domain.Onibus;
@@ -68,19 +69,22 @@ public class ReservaTeste implements ApplicationRunner {
 		r1.setViajante(v1);
 		r1.setPassagens(passagensPrimeiraReserva);
 		System.out.println("> " + r1);
+		ReservaController.incluir(r1);
 		
 		Reserva r2 = new Reserva(v1);
 		r2.setCodigo("R002");
 		r2.setTotal(500);
 		r2.setPassagens(passagensDemaisReservas);
 		System.out.println("> " + r2);
-				
+		ReservaController.incluir(r2);
+		
 		Reserva r3 = new Reserva();
 		r3.setCodigo("R003");
 		r3.setTotal(50);
 		r3.setViajante(v1);
 		r3.setPassagens(passagensDemaisReservas);
 		System.out.println("> " + r3);			
+		ReservaController.incluir(r3);
 	}
 
 }

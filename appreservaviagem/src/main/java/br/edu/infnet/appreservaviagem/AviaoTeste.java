@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appreservaviagem.controller.AviaoController;
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 
 @Component
@@ -22,6 +23,7 @@ public class AviaoTeste implements ApplicationRunner {
 		a1.setPortao("A123");
 		a1.setVoo("AB12");
 		System.out.println("> " + a1);		
+		AviaoController.incluir(a1);
 		
 		Aviao a2 = new Aviao();
 		a2.setOrigem("Sao Paulo");
@@ -31,7 +33,8 @@ public class AviaoTeste implements ApplicationRunner {
 		a2.setPortao("B123");
 		a2.setVoo("BC12");
 		System.out.println("> " + a2);
-				
+		AviaoController.incluir(a2);
+		
 		Aviao a3 = new Aviao();
 		a3.setOrigem("Salvador");
 		a3.setDestino("Sao Paulo");
@@ -40,5 +43,6 @@ public class AviaoTeste implements ApplicationRunner {
 		a3.setPortao("C123");
 		a3.setVoo("CD12");	
 		System.out.println("> " + a3);	
+		AviaoController.incluir(a3);
 	}
 }

@@ -14,17 +14,21 @@
 	  <table class="table table-striped">
 		<thead>
 	      <tr>
+	      	<th>ID</th>
 	        <th>Linha</th>
 	        <th>Plataforma</th>
 	        <th>Poltrona</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-			<c:forEach var="onibus" items="${listagem}">	  		
+			<c:forEach var="o" items="${listagem}">	  		
 				<tr>
-			        <td>${onibus.linha}</td>
-			        <td>${onibus.plataforma}</td>
-			        <td>${onibus.poltrona}</td>
+					<td>${o.id}</td>
+			        <td>${o.linha}</td>
+			        <td>${o.plataforma}</td>
+			        <td>${o.poltrona}</td>
+			        <td><a href="/onibus/${o.id}/excluir">Excluir</a></td>
 	      		</tr>
 		  	</c:forEach>
 	    </tbody>

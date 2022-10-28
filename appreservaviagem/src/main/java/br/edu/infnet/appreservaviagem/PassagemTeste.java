@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appreservaviagem.controller.PassagemController;
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
 import br.edu.infnet.appreservaviagem.model.domain.Onibus;
@@ -27,6 +28,7 @@ public class PassagemTeste implements ApplicationRunner{
 		a1.setPortao("AB12");
 		a1.setVoo("4567");
 		System.out.println("> " + a1);
+		PassagemController.incluir(a1);
 		
 		Onibus o1 = new Onibus();
 		o1.setOrigem("Curitiba");
@@ -36,7 +38,8 @@ public class PassagemTeste implements ApplicationRunner{
 		o1.setPlataforma("20");
 		o1.setPoltrona("02");		
 		System.out.println("> " + o1);
-				
+		PassagemController.incluir(o1);
+		
 		Carona c1 = new Carona();
 		c1.setOrigem("Tatui");
 		c1.setDestino("Sorocaba");
@@ -45,6 +48,7 @@ public class PassagemTeste implements ApplicationRunner{
 		c1.setModelo("Ka");
 		c1.setPlaca("AAA1B12");
 		System.out.println("> " + c1);		
+		PassagemController.incluir(c1);
 	}
 	
 }

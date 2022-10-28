@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appreservaviagem.controller.ViajanteController;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 
 @Order(2)
@@ -22,18 +23,21 @@ public class ViajanteTeste implements ApplicationRunner {
 		v1.setDocumento("111.222.333-44");
 		v1.setDataNascimento(new Date());
 		System.out.println("> " + v1);
+		ViajanteController.incluir(v1);
 		
 		Viajante v2 = new Viajante();
 		v2.setNome("João Souza");
 		v2.setDocumento("222.333.444-55");
 		v2.setDataNascimento(new Date());
 		System.out.println("> " + v2);
-				
+		ViajanteController.incluir(v2);
+		
 		Viajante v3 = new Viajante();
 		v3.setNome("Pedro Camargo");
 		v3.setDocumento("333.444.555-66");
 		v3.setDataNascimento(new Date());
-		System.out.println("> " + v3);			
+		System.out.println("> " + v3);		
+		ViajanteController.incluir(v3);
 	}
 
 }

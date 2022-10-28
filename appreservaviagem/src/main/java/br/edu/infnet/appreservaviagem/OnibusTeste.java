@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appreservaviagem.controller.OnibusController;
 import br.edu.infnet.appreservaviagem.model.domain.Onibus;
 
 @Component
@@ -23,6 +24,7 @@ public class OnibusTeste implements ApplicationRunner {
 		o1.setPlataforma("12");
 		o1.setPoltrona("40");
 		System.out.println("> " + o1);
+		OnibusController.incluir(o1);
 		
 		Onibus o2 = new Onibus();
 		o2.setOrigem("Sorocaba");
@@ -32,7 +34,8 @@ public class OnibusTeste implements ApplicationRunner {
 		o2.setPlataforma("01");
 		o2.setPoltrona("20");
 		System.out.println("> " + o2);
-				
+		OnibusController.incluir(o2);
+		
 		Onibus o3 = new Onibus();
 		o3.setOrigem("Tatui");
 		o3.setDestino("Sao Paulo");
@@ -41,5 +44,6 @@ public class OnibusTeste implements ApplicationRunner {
 		o3.setPlataforma("08");
 		o3.setPoltrona("11");	
 		System.out.println("> " + o3);	
+		OnibusController.incluir(o3);
 	}
 }

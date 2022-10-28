@@ -3,6 +3,7 @@ package br.edu.infnet.appreservaviagem.model.domain;
 import java.util.Date;
 
 public class Viajante {
+	private Integer id;
 	private String nome;
 	private String documento;
 	private Date dataNascimento;
@@ -35,5 +36,13 @@ public class Viajante {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}	
 }

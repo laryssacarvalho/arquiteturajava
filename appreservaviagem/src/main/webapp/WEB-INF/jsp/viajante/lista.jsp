@@ -17,14 +17,16 @@
 	        <th>Nome</th>
 	        <th>Documento</th>
 	        <th>Data de Nascimento</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-			<c:forEach var="viajante" items="${listagem}">	  		
+			<c:forEach var="v" items="${listagem}">	  		
 				<tr>
-			        <td>${viajante.nome}</td>
-			        <td>${viajante.documento}</td>
-			        <td>${viajante.dataNascimento}</td>
+			        <td>${v.nome}</td>
+			        <td>${v.documento}</td>
+			        <td>${v.dataNascimento}</td>
+			        <td><a href="/viajante/${v.id}/excluir">Excluir</a></td>
 	      		</tr>
 		  	</c:forEach>
 	    </tbody>

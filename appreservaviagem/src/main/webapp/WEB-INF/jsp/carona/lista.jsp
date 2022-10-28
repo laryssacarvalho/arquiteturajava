@@ -14,17 +14,21 @@
 	  <table class="table table-striped">
 		<thead>
 	      <tr>
+	      	<th>ID</th>
 	        <th>Marca</th>
 	        <th>Modelo</th>
 	        <th>Placa</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-			<c:forEach var="carona" items="${listagem}">	  		
+			<c:forEach var="c" items="${listagem}">	  		
 				<tr>
-			        <td>${carona.marca}</td>
-			        <td>${carona.modelo}</td>
-			        <td>${carona.placa}</td>
+					<td>${c.id}</td>
+			        <td>${c.marca}</td>
+			        <td>${c.modelo}</td>
+			        <td>${c.placa}</td>
+			        <td><a href="/carona/${c.id}/excluir">Excluir</a></td>
 	      		</tr>
 		  	</c:forEach>
 	    </tbody>

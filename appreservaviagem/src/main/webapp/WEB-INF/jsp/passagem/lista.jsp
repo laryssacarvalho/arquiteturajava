@@ -17,14 +17,16 @@
 	        <th>Origem</th>
 	        <th>Destino</th>
 	        <th>Data</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-			<c:forEach var="passagem" items="${listagem}">	  		
+			<c:forEach var="p" items="${listagem}">	  		
 				<tr>
-			        <td>${passagem.origem}</td>
-			        <td>${passagem.destino}</td>
-			        <td>${passagem.data}</td>
+			        <td>${p.origem}</td>
+			        <td>${p.destino}</td>
+			        <td>${p.data}</td>
+			        <td><a href="/passagem/${p.id}/excluir">Excluir</a></td>
 	      		</tr>
 		  	</c:forEach>
 	    </tbody>

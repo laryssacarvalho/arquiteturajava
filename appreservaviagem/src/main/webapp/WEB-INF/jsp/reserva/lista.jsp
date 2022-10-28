@@ -19,16 +19,18 @@
 	        <th>Viajante</th>
 	        <th>Qtd Passagens</th>
 	        <th>Total</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
-			<c:forEach var="reserva" items="${listagem}">	  		
+			<c:forEach var="r" items="${listagem}">	  		
 				<tr>
-			        <td>${reserva.codigo}</td>
-			        <td>${reserva.data}</td>
-			        <td>${reserva.viajante}</td>
-			        <td>${reserva.passagens.size()}</td>
-			        <td>${reserva.total}</td>
+			        <td>${r.codigo}</td>
+			        <td>${r.data}</td>
+			        <td>${r.viajante}</td>
+			        <td>${r.passagens.size()}</td>
+			        <td>${r.total}</td>
+			        <td><a href="/reserva/${r.id}/excluir">Excluir</a></td>
 	      		</tr>
 		  	</c:forEach>
 	    </tbody>
