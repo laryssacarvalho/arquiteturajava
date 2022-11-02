@@ -2,7 +2,17 @@ package br.edu.infnet.appreservaviagem.model.domain;
 
 import java.util.Date;
 
-public class Passagem {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tpassagem")
+public abstract class Passagem {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String origem;
 	private String destino;

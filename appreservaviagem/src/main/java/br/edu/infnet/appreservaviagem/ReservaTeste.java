@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -16,11 +17,14 @@ import br.edu.infnet.appreservaviagem.model.domain.Onibus;
 import br.edu.infnet.appreservaviagem.model.domain.Passagem;
 import br.edu.infnet.appreservaviagem.model.domain.Reserva;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
+import br.edu.infnet.appreservaviagem.model.service.ReservaService;
 
 @Order(1)
 @Component
 public class ReservaTeste implements ApplicationRunner {
-
+	@Autowired
+	private ReservaService reservaService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de Reservas ##");
@@ -69,14 +73,14 @@ public class ReservaTeste implements ApplicationRunner {
 		r1.setViajante(v1);
 		r1.setPassagens(passagensPrimeiraReserva);
 		System.out.println("> " + r1);
-		ReservaController.incluir(r1);
+		reservaService.incluir(r1);
 		
 		Reserva r2 = new Reserva(v1);
 		r2.setCodigo("R002");
 		r2.setTotal(500);
 		r2.setPassagens(passagensDemaisReservas);
 		System.out.println("> " + r2);
-		ReservaController.incluir(r2);
+		reservaService.incluir(r2);
 		
 		Reserva r3 = new Reserva();
 		r3.setCodigo("R003");
@@ -84,7 +88,7 @@ public class ReservaTeste implements ApplicationRunner {
 		r3.setViajante(v1);
 		r3.setPassagens(passagensDemaisReservas);
 		System.out.println("> " + r3);			
-		ReservaController.incluir(r3);
+		reservaService.incluir(r3);
 	}
 
 }

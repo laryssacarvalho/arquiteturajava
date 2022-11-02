@@ -1,5 +1,10 @@
 package br.edu.infnet.appreservaviagem.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tcarona")
 public class Carona extends Passagem {
 	private String marca;
 	private String modelo;

@@ -2,16 +2,20 @@ package br.edu.infnet.appreservaviagem;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appreservaviagem.controller.CaronaController;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
+import br.edu.infnet.appreservaviagem.model.service.CaronaService;
 
 @Component
 public class CaronaTeste implements ApplicationRunner {
-
+	@Autowired
+	private CaronaService caronaService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de Passagens de Carona ##");
@@ -24,7 +28,7 @@ public class CaronaTeste implements ApplicationRunner {
 		c1.setModelo("Ka");
 		c1.setPlaca("AAA1B12");
 		System.out.println("> " + c1);
-		CaronaController.incluir(c1);
+		caronaService.incluir(c1);
 		
 		Carona c2 = new Carona();
 		c2.setOrigem("Sorocaba");
@@ -34,7 +38,7 @@ public class CaronaTeste implements ApplicationRunner {
 		c2.setModelo("Kwid");
 		c2.setPlaca("BBB1C12");		
 		System.out.println("> " + c2);
-		CaronaController.incluir(c2);
+		caronaService.incluir(c2);
 		
 		Carona c3 = new Carona();
 		c3.setOrigem("Itu");
@@ -44,6 +48,6 @@ public class CaronaTeste implements ApplicationRunner {
 		c3.setModelo("Mobi");
 		c3.setPlaca("CCC1D12");		
 		System.out.println("> " + c3);		
-		CaronaController.incluir(c3);
+		caronaService.incluir(c3);
 	}
 }

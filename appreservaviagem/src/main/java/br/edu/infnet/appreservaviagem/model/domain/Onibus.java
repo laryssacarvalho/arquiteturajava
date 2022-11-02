@@ -1,5 +1,10 @@
 package br.edu.infnet.appreservaviagem.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tonibus")
 public class Onibus extends Passagem {
 	private String poltrona;	
 	private String linha;

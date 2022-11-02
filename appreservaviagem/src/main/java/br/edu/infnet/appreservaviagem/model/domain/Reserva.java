@@ -1,10 +1,19 @@
 package br.edu.infnet.appreservaviagem.model.domain;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "treserva")
 public class Reserva {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private double total;
 	private String codigo;

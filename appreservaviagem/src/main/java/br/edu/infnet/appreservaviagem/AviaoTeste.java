@@ -2,15 +2,19 @@ package br.edu.infnet.appreservaviagem;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appreservaviagem.controller.AviaoController;
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
+import br.edu.infnet.appreservaviagem.model.service.AviaoService;
 
 @Component
 public class AviaoTeste implements ApplicationRunner {
+	@Autowired
+	private AviaoService aviaoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de Passagens de Aviao ##");
@@ -23,7 +27,7 @@ public class AviaoTeste implements ApplicationRunner {
 		a1.setPortao("A123");
 		a1.setVoo("AB12");
 		System.out.println("> " + a1);		
-		AviaoController.incluir(a1);
+		aviaoService.incluir(a1);
 		
 		Aviao a2 = new Aviao();
 		a2.setOrigem("Sao Paulo");
@@ -33,7 +37,7 @@ public class AviaoTeste implements ApplicationRunner {
 		a2.setPortao("B123");
 		a2.setVoo("BC12");
 		System.out.println("> " + a2);
-		AviaoController.incluir(a2);
+		aviaoService.incluir(a2);
 		
 		Aviao a3 = new Aviao();
 		a3.setOrigem("Salvador");
@@ -43,6 +47,6 @@ public class AviaoTeste implements ApplicationRunner {
 		a3.setPortao("C123");
 		a3.setVoo("CD12");	
 		System.out.println("> " + a3);	
-		AviaoController.incluir(a3);
+		aviaoService.incluir(a3);
 	}
 }
