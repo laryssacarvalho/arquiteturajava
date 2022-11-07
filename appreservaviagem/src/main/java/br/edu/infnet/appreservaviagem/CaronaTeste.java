@@ -5,12 +5,13 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appreservaviagem.controller.CaronaController;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
 import br.edu.infnet.appreservaviagem.model.service.CaronaService;
 
+@Order(6)
 @Component
 public class CaronaTeste implements ApplicationRunner {
 	@Autowired

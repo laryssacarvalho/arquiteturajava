@@ -4,12 +4,16 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Cadastramento de viajantes</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">	
+	<title>Listagem de viajantes</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	
 </head>
 <body>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
 	  <h3>Viajantes</h3>
+	  <h4><a href="/viajante">Novo viajante</a></h4>
 	  
 	  <table class="table table-striped">
 		<thead>

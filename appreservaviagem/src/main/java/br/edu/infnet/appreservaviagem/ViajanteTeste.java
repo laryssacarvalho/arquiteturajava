@@ -8,24 +8,28 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appreservaviagem.controller.ViajanteController;
+import br.edu.infnet.appreservaviagem.model.domain.Usuario;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 import br.edu.infnet.appreservaviagem.model.service.ViajanteService;
 
-@Order(2)
+@Order(3)
 @Component
 public class ViajanteTeste implements ApplicationRunner {
 	@Autowired
-	private ViajanteService viajanteService;
+	private ViajanteService viajanteService;	
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de Viajantes ##");
 		
+		Usuario u1 = new Usuario();
+		u1.setId(1);
+		
 		Viajante v1 = new Viajante();
 		v1.setNome("Maria Silva");
 		v1.setDocumento("111.222.333-44");
 		v1.setDataNascimento(new Date());
+		v1.setUsuario(u1);
 		System.out.println("> " + v1);
 		viajanteService.incluir(v1);
 		
@@ -33,6 +37,7 @@ public class ViajanteTeste implements ApplicationRunner {
 		v2.setNome("João Souza");
 		v2.setDocumento("222.333.444-55");
 		v2.setDataNascimento(new Date());
+		v2.setUsuario(u1);
 		System.out.println("> " + v2);
 		viajanteService.incluir(v2);
 		
@@ -40,6 +45,7 @@ public class ViajanteTeste implements ApplicationRunner {
 		v3.setNome("Pedro Camargo");
 		v3.setDocumento("333.444.555-66");
 		v3.setDataNascimento(new Date());
+		v3.setUsuario(u1);
 		System.out.println("> " + v3);		
 		viajanteService.incluir(v3);
 	}

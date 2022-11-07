@@ -8,13 +8,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appreservaviagem.controller.PassagemController;
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
 import br.edu.infnet.appreservaviagem.model.domain.Onibus;
 import br.edu.infnet.appreservaviagem.model.service.PassagemService;
 
-@Order(3)
+@Order(4)
 @Component
 public class PassagemTeste implements ApplicationRunner{
 	@Autowired

@@ -11,7 +11,7 @@ import br.edu.infnet.appreservaviagem.model.service.PassagemService;
 @Controller
 public class PassagemController {
 	@Autowired
-	private PassagemService passagemService;
+	private PassagemService passagemService;	
 	
 	@GetMapping(value = "/passagem/lista")
 	public String telaLista(Model model) {				

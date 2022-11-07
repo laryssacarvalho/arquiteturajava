@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tviajante")
@@ -16,11 +20,14 @@ public class Viajante {
 	private Integer id;
 	private String nome;
 	private String documento;
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date dataNascimento;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return nome + ";" + documento + ";" + dataNascimento;
 	}
 
@@ -54,5 +61,13 @@ public class Viajante {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}	
 }

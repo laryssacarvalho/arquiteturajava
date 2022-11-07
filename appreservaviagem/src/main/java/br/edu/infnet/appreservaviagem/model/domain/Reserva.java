@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "treserva")
@@ -18,7 +19,9 @@ public class Reserva {
 	private double total;
 	private String codigo;
 	private LocalDateTime data;
+	@Transient
 	private Viajante viajante;
+	@Transient
 	private List<Passagem> passagens;
 	
 	public Reserva() {

@@ -10,7 +10,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appreservaviagem.controller.ReservaController;
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 import br.edu.infnet.appreservaviagem.model.domain.Carona;
 import br.edu.infnet.appreservaviagem.model.domain.Onibus;
@@ -19,7 +18,7 @@ import br.edu.infnet.appreservaviagem.model.domain.Reserva;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 import br.edu.infnet.appreservaviagem.model.service.ReservaService;
 
-@Order(1)
+@Order(2)
 @Component
 public class ReservaTeste implements ApplicationRunner {
 	@Autowired

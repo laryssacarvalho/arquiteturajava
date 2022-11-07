@@ -5,11 +5,13 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
 import br.edu.infnet.appreservaviagem.model.service.AviaoService;
 
+@Order(7)
 @Component
 public class AviaoTeste implements ApplicationRunner {
 	@Autowired

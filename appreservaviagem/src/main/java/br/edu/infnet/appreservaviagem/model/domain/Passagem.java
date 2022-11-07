@@ -6,16 +6,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tpassagem")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Passagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String origem;
 	private String destino;
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date data;
 	
 	@Override
