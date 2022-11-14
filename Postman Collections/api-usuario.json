@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "72bd61be-74da-4e8c-a7d2-7d514e0b0f5c",
+		"name": "Arquitetura Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Incluir",
+			"_postman_id": "38087303-c6d7-49d4-8b75-d74556da44c5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Pedrinho\",\r\n    \"email\": \"pedro@pedro.com\",\r\n    \"senha\": \"123\",\r\n    \"endereco\": {\r\n        \"cep\": \"88888-999\",\r\n        \"logradouro\": \"Rua teste\",\r\n        \"complemento\": \"Complemento teste\",\r\n        \"bairro\": \"Bairro teste\",\r\n        \"localidade\": \"Localidade teste\",\r\n        \"uf\": \"RJ\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8081/api/usuario/incluir"
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir",
+			"_postman_id": "49d5109a-8354-4149-91cf-9bf5e9ba7b62",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8081/api/usuario/999/excluir"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar",
+			"_postman_id": "77878009-ac39-4704-abf4-c47074ed5938",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8081/api/usuario/listar"
+			},
+			"response": []
+		},
+		{
+			"name": "Validar",
+			"_postman_id": "1936e755-927a-45a3-a0b7-80e77da95746",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/usuario/validar?email=pedro@pedro.com&senha=123",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"usuario",
+						"validar"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "pedro@pedro.com",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
