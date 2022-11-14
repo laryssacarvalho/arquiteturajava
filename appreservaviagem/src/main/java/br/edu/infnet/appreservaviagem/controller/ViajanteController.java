@@ -18,8 +18,8 @@ public class ViajanteController {
 	private ViajanteService viajanteService;
 	
 	@GetMapping(value = "/viajante/lista")
-	public String telaLista(Model model) {				
-		model.addAttribute("listagem", viajanteService.obterLista());
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {				
+		model.addAttribute("listagem", viajanteService.obterLista(usuario));
 		
 		return "viajante/lista";
 	}

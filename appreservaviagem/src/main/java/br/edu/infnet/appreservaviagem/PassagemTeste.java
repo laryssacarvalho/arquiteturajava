@@ -13,7 +13,7 @@ import br.edu.infnet.appreservaviagem.model.domain.Carona;
 import br.edu.infnet.appreservaviagem.model.domain.Onibus;
 import br.edu.infnet.appreservaviagem.model.service.PassagemService;
 
-@Order(4)
+@Order(3)
 @Component
 public class PassagemTeste implements ApplicationRunner{
 	@Autowired

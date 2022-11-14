@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appreservaviagem.model.domain.Passagem;
+import br.edu.infnet.appreservaviagem.model.domain.Usuario;
 import br.edu.infnet.appreservaviagem.model.repository.PassagemRepository;
 
 @Service
@@ -25,7 +26,7 @@ public class PassagemService {
 		return (Collection<Passagem>) passagemRepository.findAll();
 	}
 	
-	public Passagem obterPorId(Integer id) {
-		return passagemRepository.findById(id).get();
+	public Collection<Passagem> obterLista(Usuario usuario){
+		return (Collection<Passagem>) passagemRepository.obterLista(usuario.getId());
 	}
 }

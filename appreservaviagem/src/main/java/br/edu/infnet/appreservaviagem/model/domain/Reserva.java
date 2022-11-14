@@ -3,12 +3,16 @@ package br.edu.infnet.appreservaviagem.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "treserva")
@@ -17,15 +21,19 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private double total;
-	private String codigo;
-	private LocalDateTime data;
-	@Transient
+	private String codigo;	
+	private LocalDateTime dataCompra;
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idViajante")
 	private Viajante viajante;
-	@Transient
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Passagem> passagens;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Reserva() {
-		data = LocalDateTime.now();
+		dataCompra = LocalDateTime.now();
 	}
 	
 	public Reserva(Viajante viajante) {
@@ -35,7 +43,15 @@ public class Reserva {
 	
 	@Override
 	public String toString() {
-		return codigo + ";" + data + ";" + total + ";" + viajante + ";" + passagens.size();
+		return codigo + ";" + dataCompra + ";" + total + ";" + viajante + ";" + passagens.size();
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public double getTotal() {
@@ -55,11 +71,11 @@ public class Reserva {
 	}
 
 	public LocalDateTime getData() {
-		return data;
+		return dataCompra;
 	}
 
 	public void setData(LocalDateTime data) {
-		this.data = data;
+		this.dataCompra = data;
 	}
 
 	public Viajante getViajante() {

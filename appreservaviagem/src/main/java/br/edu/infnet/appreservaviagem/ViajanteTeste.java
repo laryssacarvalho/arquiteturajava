@@ -12,7 +12,7 @@ import br.edu.infnet.appreservaviagem.model.domain.Usuario;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 import br.edu.infnet.appreservaviagem.model.service.ViajanteService;
 
-@Order(3)
+@Order(2)
 @Component
 public class ViajanteTeste implements ApplicationRunner {
 	@Autowired

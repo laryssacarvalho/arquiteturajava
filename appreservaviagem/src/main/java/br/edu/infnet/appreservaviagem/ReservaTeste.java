@@ -11,14 +11,13 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appreservaviagem.model.domain.Aviao;
-import br.edu.infnet.appreservaviagem.model.domain.Carona;
-import br.edu.infnet.appreservaviagem.model.domain.Onibus;
 import br.edu.infnet.appreservaviagem.model.domain.Passagem;
 import br.edu.infnet.appreservaviagem.model.domain.Reserva;
+import br.edu.infnet.appreservaviagem.model.domain.Usuario;
 import br.edu.infnet.appreservaviagem.model.domain.Viajante;
 import br.edu.infnet.appreservaviagem.model.service.ReservaService;
 
-@Order(2)
+@Order(7)
 @Component
 public class ReservaTeste implements ApplicationRunner {
 	@Autowired
@@ -28,10 +27,14 @@ public class ReservaTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Cadastramento de Reservas ##");
 		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		
 		Viajante v1 = new Viajante();
 		v1.setDataNascimento(new Date());
 		v1.setDocumento("111.222.333-44");
 		v1.setNome("Maria Silva");
+		v1.setId(1);
 		
 		Aviao a1 = new Aviao();
 		a1.setOrigem("Salvador");
@@ -40,37 +43,20 @@ public class ReservaTeste implements ApplicationRunner {
 		a1.setAssento("10");
 		a1.setPortao("AB12");
 		a1.setVoo("4567");
-		
-		Onibus o1 = new Onibus();
-		o1.setOrigem("Curitiba");
-		o1.setDestino("Sao Paulo");
-		o1.setData(new Date());
-		o1.setLinha("CURITIBA - SAO PAULO");
-		o1.setPlataforma("20");
-		o1.setPoltrona("02");
-				
-		Carona c1 = new Carona();
-		c1.setOrigem("Tatui");
-		c1.setDestino("Sorocaba");
-		c1.setData(new Date());
-		c1.setMarca("Ford");
-		c1.setModelo("Ka");
-		c1.setPlaca("AAA1B12");	
+		a1.setId(1);
 		
 		List<Passagem> passagensPrimeiraReserva = new ArrayList<Passagem>();
-		passagensPrimeiraReserva.add(a1);
-		passagensPrimeiraReserva.add(c1);
+		passagensPrimeiraReserva.add(a1);		
 		
 		List<Passagem> passagensDemaisReservas = new ArrayList<Passagem>();
-		passagensDemaisReservas.add(a1);
-		passagensDemaisReservas.add(c1);
-		passagensDemaisReservas.add(o1);
+		passagensDemaisReservas.add(a1);		
 		
 		Reserva r1 = new Reserva();
 		r1.setCodigo("R001");
 		r1.setTotal(100);		
 		r1.setViajante(v1);
 		r1.setPassagens(passagensPrimeiraReserva);
+		r1.setUsuario(usuario);
 		System.out.println("> " + r1);
 		reservaService.incluir(r1);
 		
@@ -78,6 +64,7 @@ public class ReservaTeste implements ApplicationRunner {
 		r2.setCodigo("R002");
 		r2.setTotal(500);
 		r2.setPassagens(passagensDemaisReservas);
+		r2.setUsuario(usuario);
 		System.out.println("> " + r2);
 		reservaService.incluir(r2);
 		
@@ -86,6 +73,7 @@ public class ReservaTeste implements ApplicationRunner {
 		r3.setTotal(50);
 		r3.setViajante(v1);
 		r3.setPassagens(passagensDemaisReservas);
+		r3.setUsuario(usuario);
 		System.out.println("> " + r3);			
 		reservaService.incluir(r3);
 	}
